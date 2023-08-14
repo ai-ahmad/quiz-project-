@@ -48,19 +48,21 @@ function App() {
     },
   ]);
   let [quizId, setQuizId] = useState(0);
-  let [length, setLength] = useState(10);
   let [number, setNumber] = useState(100 / quiz.length);
+  let [length, setLength] = useState(number);
   let [count, setCount] = useState(0);
   let [wrapper, setWrapper] = useState(true);
-  function upDate(e) {
-    // setQuizId((prev) => prev - 1);
 
+  function upDate(e) {
     if (length === 100) {
-      setWrapper(false);
+      setWrapper(false); // Update the wrapper state here
     } else {
       setQuizId((prev) => prev + 1);
       setLength((prev) => prev + number);
     }
+
+    console.log(e.target.value);
+    console.log(quiz[quizId].jovop);
 
     if (quiz[quizId].jovop === e.target.value) {
       setCount((prev) => prev + 1);
@@ -72,13 +74,13 @@ function App() {
 
   return (
     <div className="App w-[100%] m-auto h-[100vh] overflow-hidden bg-[#6A50E7] flex justify-center items-center">
-      {wrapper && (
+      {wrapper ? (
         <Card upDate={upDate} quiz={quiz} quizId={quizId} length={length} />
+      ) : (
+        <GameOver count={count} data={quiz} />
       )}
-      {!wrapper && <GameOver count={count} data={quiz} />}
     </div>
   );
 }
-
 
 export default App;

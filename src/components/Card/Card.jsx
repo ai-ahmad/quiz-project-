@@ -10,27 +10,27 @@ const Card = ({upDate,quiz, quizId , length}) => {
         ></div>
       </div>
       <div className="quiz flex flex-col item-center h-[250px] justify-center gap-5 mt-4">
-        <h1 className="text-2xl font-[800] ">{quiz[quizId].sovol}</h1>
+        <h1 className="text-2xl font-[800] ">{quiz[quizId]?.sovol}</h1>
         <button
           onClick={upDate}
           value="a"
           className="w-[100%] h-[60px] border-solid border-2 border-[#EEEEEE] text-xl font-extrabold  text-start text-[#864848]  p-3"
         >
-          A){quiz[quizId].a}
+          A){quiz[quizId]?.a}
         </button>
         <button
           onClick={upDate}
           value="b"
           className="w-[100%] h-[60px] border-solid border-2 border-[#EEEEEE] text-xl font-extrabold text-start text-[#864848] p-3"
         >
-          B){quiz[quizId].b}
+          B){quiz[quizId]?.b}
         </button>
         <button
           onClick={upDate}
           value="c"
           className="w-[100%] h-[60px] border-solid border-2 border-[#EEEEEE] text-xl font-extrabold text-start text-[#864848] p-3"
         >
-          C){quiz[quizId].c}
+          C){quiz[quizId]?.c}
         </button>
       </div>
     </div>
